@@ -5,15 +5,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Categorias</title>
+    <title>Senac Store</title>
 </head>
 
 <body>
-    <h1>Senac Store</h1>
+    <h1>Categoria</h1>
     <ul>
         {% for categ in categorias %}
-        <li>[{{ categ.departamento }}] {{ categ.nome }}</li>
+        <li><a href="/produtos/{{ categ.id}}">[{{ categ.departamento }}] {{ categ.nome }}</a></li>
+        {% empty %}
+        Não há nenhuma categoria encontrada. Gentileza, verifique as informações !!!
         {% endfor %}
+    </ul>
 </body>
 
 </html>
