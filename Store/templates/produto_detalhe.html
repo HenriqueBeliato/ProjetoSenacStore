@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -5,20 +6,20 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Detalhamento de Produto</title>
+    <title>{{ produto.nome }}</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/estilos.css' %}">
 </head>
 
 <body>
-    <h1>Nome do Produto: {{ produto.nome }}</h1>
-    <h5>{{ departamento.nome }} >> {{ categ.nome }}</h5>
-    <a href="{{/prod.imagem.url}}" width="80"></a>
-    <h2>{% if prod.lancamento == True %}
-        LANÇAMENTO !!!
-        {% endif %}
-    </h2>
-    <p>Descrição do Produto: {{ prod.descricao }}</p>
-    <h3>Preço: R$ {{ prod.preco }}</h3>
-    <h3>Estoque: {{ prod.estoque }}</h3>
+    <h1>{{ produto.nome }}</h1>
+    <h5>{{ produto.categoria.departamento.nome }} >> {{ produto.categoria.nome }}</h5>
+    <img src = "{{ produto.imagem.url }}" width="150">
+    {% if produto.lancamento == True %}
+    <h2>LANÇAMENTO !!!</h2>
+    {% endif %}
+    <p>{{ produto.descricao|linebreaks }}</p>
+    <h3>Preço: R$ {{ produto.preco }}</h3>
+    <h3>Estoque: {{ produto.estoque }}</h3>
 </body>
 
 </html>

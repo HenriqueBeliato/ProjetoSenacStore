@@ -1,7 +1,6 @@
 from multiprocessing import context
 from django.shortcuts import render
 from django.http import HttpResponse
-from requests import request
 from Store.models import Departamento
 from Store.models import Categoria
 from Store.models import Produto
@@ -30,13 +29,6 @@ def departamentos(request):
 
 
 
-def lista_categ(request):
-    lista_categorias = Categoria.objects.all()
-    context = {'categorias': lista_categorias}
-    return render(request, 'categorias.html', context)
-
-
-
 def categorias(request, id):
     lista_categorias = Categoria.objects.filter(departamento_id = id)
     depto = Departamento.objects.get(id = id)
@@ -45,13 +37,6 @@ def categorias(request, id):
         'departamento': depto
         }
     return render(request, 'categorias.html', context) 
-
-
-
-def lista_prod(request):
-    relacao_produtos = Produto.objects.all()
-    context = {'categorias': relacao_produtos}
-    return render(request, 'Produtos.html', context)
 
 
 
@@ -67,9 +52,8 @@ def produtos(request, id):
 
 
 def produto_detalhe(request, id):
-    det_prod = Produto.objects.get(id = id)
+    produto = Produto.objects.get(id = id)
     context = {
-        'Produto_Detalhe': det_prod,
-        'Produto': det_prod
+        'produto': produto,
         }
     return render(request, 'produto_detalhe.html', context)
