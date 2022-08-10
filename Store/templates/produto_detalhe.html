@@ -11,6 +11,7 @@
 </head>
 
 <body>
+    {% include 'includes/topo.html' %}
     <h1>{{ produto.nome }}</h1>
     <h5>{{ produto.categoria.departamento.nome }} >> {{ produto.categoria.nome }}</h5>
     <img src = "{{ produto.imagem.url }}" width="150">

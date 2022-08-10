@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/estilos.css' %}">
+</head>
+<body>
+    {% include 'includes/topo.html' %}
+    <h1>Contato</h1>
+
+    <form method="post" action="">
+        Nome:<br><input name="nome">
+        <br><br>
+        E-mail:<br><input name="email">
+        <br><br>
+        Telefone:<br><input name="telefone">
+        <br><br>
+        Assunto:<br><input name="assunto">
+        <br><br>
+        Mensagem:<br><textarea name="mensagem"></textarea>
+        <br><br>
+        <input type="submit" value="Enviar">
+    </form>
+
+</body>
+</html>

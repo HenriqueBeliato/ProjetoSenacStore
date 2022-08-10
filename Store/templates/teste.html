@@ -9,6 +9,7 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/estilos.css' %}">
 </head>
 <body>
+    {% include 'includes/topo.html' %}
     <h1>Departamentos</h1>
     <ul>
         {% for departamento in departamentos %}

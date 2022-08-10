@@ -9,6 +9,7 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/estilos.css' %}">
 </head>
 <body>
+    {% include 'includes/topo.html' %}
     <h1>Produtos da Categoria {{ Categoria.nome }}</h1>
         <table border="1">
             <tr>
