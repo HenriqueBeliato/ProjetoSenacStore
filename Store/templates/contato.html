@@ -12,7 +12,8 @@
     {% include 'includes/topo.html' %}
     <h1>Contato</h1>
 
-    <form method="post" action="">
+    <form method="post" action="{% url 'enviar_contato' %}">
+        {% csrf_token %}
         Nome:<br><input name="nome">
         <br><br>
         E-mail:<br><input name="email">
@@ -25,6 +26,9 @@
         <br><br>
         <input type="submit" value="Enviar">
     </form>
+    {% if msg != '' %}
+        <p>{{ msg }}</p>
+    {% endif %}
 
 </body>
 </html>
